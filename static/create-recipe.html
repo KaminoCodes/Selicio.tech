@@ -1,0 +1,46 @@
+<html>
+  <head>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' type='text/css' href='https://crappy-db.wafflecodez.repl.co/style.css'>
+  <meta charset="UTF-8">
+  <title>My GUI Content Tool</title>
+	<script>
+		function changeType(){
+			var content_type = document.getElementById("content_type").value;
+			if(content_type === 'img'){
+				document.getElementByClass("text-input").style.visibility = none;
+				document.getElementByClass("img-upload").style.visibility = block;
+			}else{
+				document.getElementByClass("img-upload").style.visibility = none;
+				document.getElementByClass("text-input").style.visibility = block;
+			}
+		}
+	</script>
+  </head>
+  <body>
+  <h1>My Content Tool</h1>
+    <div class="myForm">
+          <textarea class="text-input" id="content" name='content' rows='4' cols='50' spellcheck='true' placeholder="type..."></textarea>
+					<input class="img-upload" type="link" placeholder="https://my-image.url/here">
+          <br>
+          <label for="content_type">Content Type:</label><br>
+         <select class="greenBut" id="content_type" name="content_type" onselect="changeType()">
+         <!-- User's makes selection-->
+           <option value="ingredients">Ingredients (Place each ingredient on a new line)<br>
+           <option value="img">Image<br>
+           <option value="bordered">Bordered<br>
+         </select><br><br>
+         <button class="greenBut" onclick="addThis()" id="addThat">Add To Code</button>
+    </div>
+    <br><br>
+         <form class="myForm" action="/page" method="post">
+           File Name:<br>
+           <input name="file" type="text" spellcheck="true" required><br><br>
+           Code Preview:<br>
+           <textarea rows="10" columns="40" class="consoleText" name="myPage" id="myPage" type="text"></textarea><br><br>
+           <input class="greenBut" type='submit' id="type" value='Create Page'>
+         </form>
+         <script src="https://crappy-db.wafflecodez.repl.co/maker.js"></script>
+  </body>
+</html>
